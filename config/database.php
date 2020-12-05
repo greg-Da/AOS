@@ -45,7 +45,7 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => 'mongodb://'.env('DB_USERNAME').':'.env('DB_PASSWORD').'@cluster0-shard-00-00.ymglz.gcp.mongodb.net:27017,cluster0-shard-00-01.ymglz.gcp.mongodb.net:27017,cluster0-shard-00-02.ymglz.gcp.mongodb.net:27017/'.env('DB_DATABASE').'?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority'
+            'dsn' => 'mongodb://'.env('DB_USERNAME').':'.env('DB_PASSWORD').'@'.env('DB_HOST').env('DB_DATABASE').'?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority'
         ],
             
 

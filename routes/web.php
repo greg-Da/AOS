@@ -15,14 +15,15 @@ use App\Http\Controllers\TaskController;
 |
 */
 
+//route home page
 Route::get('/', function () {
     return view('welcome');
 });
 
+//routes for Authentification
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+// routes CRUD task + all protectedby Auth
 Route::get('/task', [TaskController::class, "index"])->name('task.index')->middleware('auth');
 Route::get('/task/create', [TaskController::class, "create"])->name('task.create')->middleware('auth');
 Route::post('/task/create', [TaskController::class, "store"])->name('task.store')->middleware('auth');

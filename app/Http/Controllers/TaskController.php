@@ -15,6 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
+        //display only task related to the user
         $userId = Auth::user()->id;
         $tasks = Task::where('user_id',$userId)->get();
 
@@ -39,11 +40,14 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+
+        //require value
         $data = $this->validate($request, [
             'name' => 'required',
             'detail' => 'required',
         ]);
 
+        //store values in the + store user_id
         Auth::user()->tasks()->create([
             'name' => $data['name'],
             'detail' => $data['detail'],
@@ -88,6 +92,7 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
 
+        //require values
         request()->validate([
             'name' => 'required',
             'detail' => 'required',

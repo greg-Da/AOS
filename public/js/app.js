@@ -65954,7 +65954,9 @@ var Home = /*#__PURE__*/function (_Component) {
         className: "row justify-content-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-8 alignText"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Welcome to the To Do List")));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "homeTitle"
+      }, "Welcome to the To Do List")));
     }
   }]);
 

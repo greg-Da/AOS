@@ -17,6 +17,7 @@ class Task extends Eloquent
         'name', 'detail', 'done'
     ];
 
+    //by default "done" is set to false
     protected $attributes = [
         'done' => 0,
      ];

@@ -40,6 +40,11 @@ class User extends Authenticatable
     protected $casts = [
     ];
 
+    /**
+     * The relationship to the belonging tasks.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class, "user_id");
