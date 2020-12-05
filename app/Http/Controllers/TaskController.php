@@ -43,8 +43,8 @@ class TaskController extends Controller
 
         //require value
         $data = $this->validate($request, [
-            'name' => 'required',
-            'detail' => 'required',
+            'name' => 'required|max:255',
+            'detail' => 'required|max:255',
         ]);
 
         //store values in the + store user_id
@@ -94,8 +94,8 @@ class TaskController extends Controller
 
         //require values
         request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'name' => 'required|max:255',
+            'detail' => 'required|max:255',
             'done' => 'required',
         ]);
 
