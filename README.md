@@ -13,7 +13,7 @@ This website is a simple To-Do list, where a user can login/register and then cr
 6) `php artisan migrate`
 
 ## Languages used
-- Laravel
+- Laravel 8
 - React
 - HTML/CSS
 
