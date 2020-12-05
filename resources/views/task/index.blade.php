@@ -5,25 +5,22 @@
 
 <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Task</h2>
+            <div class="text-center">
+                <h2>To-Do List</h2>
             </div>
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('task.create') }}"> Create New Task</a>
             </div>
         </div>
     </div>
 
-
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
-
     <table class="table table-bordered">
-        <tr>
+        <tr class="thead-dark">
             <th>No</th>
             <th>Name</th>
             <th>Done</th>

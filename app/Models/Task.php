@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
-use Jenssegers\Mongodb\Relations\BelongTo;
+use Jenssegers\Mongodb\Relations\BelongsTo;
 
 class Task extends Eloquent
 {
