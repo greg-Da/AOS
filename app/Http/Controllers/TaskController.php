@@ -47,7 +47,7 @@ class TaskController extends Controller
             'detail' => 'required|max:255',
         ]);
 
-        //store values in the + store user_id
+        //store values in the db + "done" is false by default + store user_id
         Auth::user()->tasks()->create([
             'name' => $data['name'],
             'detail' => $data['detail'],
