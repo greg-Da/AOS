@@ -6,7 +6,7 @@ This website is a simple To-Do list, where a user can login/register and then cr
 1) `git clone https://github.com/greg-Da/AOS`
 2) `composer install`
 3) `npm install`
-4) Create a .env pass value in it
+4) Create a .env & pass value in it
 5) `php artisan key:generate`
 6) `php artisan migrate`
 
