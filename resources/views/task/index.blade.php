@@ -21,22 +21,25 @@
 
     <table class="table table-bordered">
         <tr class="thead-dark">
-            <th>No</th>
-            <th>Name</th>
-            <th>Done</th>
-            <th width="280px">Action</th>
+            <th class="text-center">No</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Done</th>
+            <th class="text-center" width="280px">Action</th>
         </tr>
         @php ($i = 0)
 	    @foreach ($tasks as $task)
 	    <tr>
-	        <td>{{ ++$i }}</td>
-	        <td>{{ $task->name }}</td>
-            @if ($task->done)
-            <td>Done</td>
+          @if ($task->done)
+	        <td class="table-success text-center">{{ ++$i }}</td>
+	        <td class="table-success text-center">{{ $task->name }}</td>
+            <td class="table-success text-center">Done</td>
+            <td class="table-success text-center">
             @else
-            <td>In progress</td>
+            <td class="table-secondary text-center">{{ ++$i }}</td>
+	        <td class="table-secondary text-center">{{ $task->name }}</td>
+            <td class="table-secondary text-center">In progress</td>
+            <td class="table-secondary text-center">
             @endif
-	        <td>
                 <form action="{{ route('task.destroy',$task->id) }}" method="GET">
                 
                 <!-- Button trigger modal -->
@@ -58,7 +61,7 @@
                       <h4>Details of the task:</h4>
                       <p>{{$task->detail}}</p>
                       <h4>State:</h4>
-                    @if ($task->done)
+                            @if ($task->done)
                             <h5>Done</h5>
                             @else
                             <h5>In progress</h5>
