@@ -15,7 +15,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        $userId = Auth::user()->id;
+        $tasks = Task::where('user_id',$userId)->get();
 
 		return view('task.index', ['tasks' => $tasks]);
     }
@@ -38,13 +39,16 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
+        $data = $this->validate($request, [
             'name' => 'required',
             'detail' => 'required',
         ]);
 
-
-        Task::create($request->all());
+        Auth::user()->tasks()->create([
+            'name' => $data['name'],
+            'detail' => $data['detail'],
+            'done' => 0,
+        ]);
 
 
         return redirect()->route('task.index')
