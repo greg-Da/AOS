@@ -23,13 +23,15 @@ jobs:
     - name: Composer (php-actions)
       uses: php-actions/composer@v6
         
-    - name: Install NPM dependencies
+    - name: Install Composer dependencies
       run: composer install
+    - name: Install NPM dependencies
       run: npm install
     - name: Compile assets for production
       run: npm run watch &
-    - name: Build App
+    - name: Generate Key
       run: php artisan key:generate
+    - name: Migrate
       run: php artisan migrate
         
         
