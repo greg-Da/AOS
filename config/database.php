@@ -45,7 +45,7 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => 'mongodb://'.env('DB_USERNAME').':'.env('DB_PASSWORD').'@'.env('DB_HOST').env('DB_DATABASE').'?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority'
+            'dsn' => 'mongodb+srv://'.env('DB_USERNAME').':'.env('DB_PASSWORD').'@'.env('DB_DATABASE').'.rtko5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
         ],
             
 
