@@ -6,41 +6,41 @@ on:
       - master
       - staging
       
-    jobs:
-      build:
+jobs:
+  build:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+      uses: actions/checkout@v2
+      - name: Setup Node.js
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: '12'
+        check-latest: true
+      
+      - name: Composer (php-actions)
+        uses: php-actions/composer@v6
         
-        runs-on: ubuntu-latest
+      - name: Install NPM dependencies
+        run: composer install
+        run: npm install
+      - name: Compile assets for production
+        run: npm run watch &
+      - name: Build App
+        run: php artisan key:generate
+        run: php artisan migrate
         
-        steps:
-          - name: Checkout
-          uses: actions/checkout@v2
-          - name: Setup Node.js
-          uses: actions/setup-node@v2-beta
-          with:
-            node-version: '12'
-            check-latest: true
-          
-          - name: Composer (php-actions)
-            uses: php-actions/composer@v6
-            
-          - name: Install NPM dependencies
-            run: composer install
-            run: npm install
-          - name: Compile assets for production
-            run: npm run watch &
-          - name: Build App
-            run: php artisan key:generate
-            run: php artisan migrate
-            
-            
-          - name: "Install ruby"
-            uses: ruby/setup-ruby@v1
-            with:
-              ruby-version: '2.7'
+        
+      - name: "Install ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
 
-          - name: "Install DPL"
-            run: gem install dpl
+      - name: "Install DPL"
+        run: gem install dpl
 
-          - name: "Deploy to Heroku"
-            run: dpl --provider=heroku --app=${{secrets.HEROKU_APP}} --api-key=${{secrets.HEROKU_API_KEY}} --skip_cleanup=true
+      - name: "Deploy to Heroku"
+        run: dpl --provider=heroku --app=${{secrets.HEROKU_APP}} --api-key=${{secrets.HEROKU_API_KEY}} --skip_cleanup=true
 
