@@ -40,7 +40,6 @@ jobs:
         DB_PORT: 3306
         DB_DATABASE: Cluster0
         DB_USERNAME: root
-        directory: src/
         file_name: .env
     
     - name: Migrate
