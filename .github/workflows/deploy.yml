@@ -30,6 +30,19 @@ jobs:
       run: npm run watch &
     - name: Generate Key
       run: php artisan key:generate
+
+    - name: Create env
+      uses: SpicyPizza/create-envfile@v1
+      with:
+        envkey_DEBUG: false
+        DB_PASSWORD: ${{ secrets.APP_PASWORD }}
+        DB_CONNECTION: mongodb
+        DB_PORT: 3306
+        DB_DATABASE: Cluster0
+        DB_USERNAME: root
+        directory: <directory_name>
+        file_name: .env
+    
     - name: Migrate
       run: php artisan migrate
         
