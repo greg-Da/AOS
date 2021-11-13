@@ -21,15 +21,15 @@ jobs:
         check-latest: true
       
     - name: Create env
-        uses: SpicyPizza/create-envfile@v1
-        with:
-          envkey_DEBUG: false
-          DB_PASSWORD: ${{ secrets.APP_PASWORD }}
-          DB_CONNECTION: mongodb
-          DB_PORT: 3306
-          DB_DATABASE: Cluster0
-          DB_USERNAME: root
-          file_name: .env
+      uses: SpicyPizza/create-envfile@v1
+      with:
+        envkey_DEBUG: false
+        DB_PASSWORD: ${{ secrets.APP_PASWORD }}
+        DB_CONNECTION: mongodb
+        DB_PORT: 3306
+        DB_DATABASE: Cluster0
+        DB_USERNAME: root
+        file_name: .env
         
     - name: Install Composer dependencies
       run: composer install --ignore-platform-reqs
